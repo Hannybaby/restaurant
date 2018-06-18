@@ -58,6 +58,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   const image = document.getElementById('restaurant-img');
   image.className = 'restaurant-img'
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.alt = `a detailed photo of the ${restaurant.name} restaurant`;
 
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
@@ -110,7 +111,7 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
     ul.appendChild(createReviewHTML(review));
   });
   container.appendChild(ul);
-}
+};
 
 /**
  * Create review HTML and add it to the webpage.
@@ -120,18 +121,22 @@ createReviewHTML = (review) => {
   const name = document.createElement('p');
   name.innerHTML = review.name;
   li.appendChild(name);
+  name.style.cssText = 'color: #fff; float: left; background: #444; letter-spacing: 5px; margin: 0 10px; padding: 10px 0 10px 0; width: 50%';
 
   const date = document.createElement('p');
   date.innerHTML = review.date;
   li.appendChild(date);
+  date.style.cssText = 'color: #fff; width: 100%; background: #444; letter-spacing: 3px; margin: 0px; padding: 10px 0 10px 0'
 
   const rating = document.createElement('p');
   rating.innerHTML = `Rating: ${review.rating}`;
   li.appendChild(rating);
+  rating.style.cssText = 'color: #fff; width: 10%; float: left; display: inline-flex; width: 60px; margin: 10px; padding: 10px; background: #be5e00'
 
   const comments = document.createElement('p');
   comments.innerHTML = review.comments;
   li.appendChild(comments);
+  comments.style.cssText = 'float: right; text-align: left'
 
   return li;
 }

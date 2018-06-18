@@ -9,7 +9,9 @@ class DBHelper {
    */
   static get DATABASE_URL() {
     const port = 8000 // Change this to your server port
+    // const port = 8080 // webserver
     return `http://localhost:${port}/data/restaurants.json`;
+    // return `http://batukeros.de/restaurant/data/restaurants.json`; 
   }
 
   /**

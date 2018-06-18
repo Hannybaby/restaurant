@@ -2,8 +2,11 @@
 <html>
 
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" media="screen and (min-width:400px)" href="/css/medium.css">
+  <link rel="stylesheet" media="screen and (min-width:1200px)" href="/css/large.css">
   <title>Restaurant Reviews</title>
 </head>
 
@@ -15,11 +18,11 @@
   </header>
 
   <main id="maincontent">
-    <section id="map-container">
+    <section id="map-container" aria-labeledby="map-aria-description" role="application">
       <div id="map"></div>
     </section>
     <section>
-      <div class="filter-options">
+      <section class="filter-options">
         <h2>Filter Results</h2>
         <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
           <option value="all">All Neighborhoods</option>
@@ -27,7 +30,7 @@
         <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
           <option value="all">All Cuisines</option>
         </select>
-      </div>
+      </section>
       <ul id="restaurants-list"></ul>
     </section>
   </main>
@@ -38,7 +41,7 @@
 
 
   <footer id="footer">
-    Copyright (c) 2017 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
+    Copyright (c) 2018 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
   </footer>
 
 </body>

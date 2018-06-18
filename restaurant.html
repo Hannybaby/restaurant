@@ -2,10 +2,14 @@
 <html>
 
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Normalize.css for better cross-browser consistency -->
   <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
   <!-- Main CSS file -->
   <link rel="stylesheet" href="css/styles.css" type="text/css">
+  <link rel="stylesheet" media="screen and (min-width:600px) and (max-width:999px)" href="/css/medium.css">
+  <link rel="stylesheet" media="screen and (min-width:1000px)" href="/css/large.css">
+  <script type="application/javascript" scr="js/registersw.js"></script>
   <title>Restaurant Info</title>
 </head>
 
@@ -17,9 +21,11 @@
       <h1><a href="/">Restaurant Reviews</a></h1>
     </nav>
     <!-- Beginning breadcrumb -->
-    <ul id="breadcrumb" >
+    <nav aria-label="Breadcrumb">
+    <ul id="breadcrumb">
       <li><a href="/">Home</a></li>
     </ul>
+  </nav>
     <!-- End breadcrumb -->
     <!-- End nav -->
   </header>
@@ -28,18 +34,25 @@
   <!-- Beginning main -->
   <main id="maincontent">
     <!-- Beginning map -->
-    <section id="map-container">
+    <div id="map-restaurant">
+    <section id="map-container" aria-labeledby="map-aria-description-description" role="application">
       <div id="map"></div>
     </section>
+    <label id="map-aria-description">google maps</label>
     <!-- End map -->
     <!-- Beginning restaurant -->
     <section id="restaurant-container">
       <h1 id="restaurant-name"></h1>
+      <div id="info-image">
       <img id="restaurant-img">
+      <div id="hours-cusine-address">
       <p id="restaurant-cuisine"></p>
       <p id="restaurant-address"></p>
       <table id="restaurant-hours"></table>
+    </div>
+    </div>
     </section>
+    </div>
     <!-- end restaurant -->
     <!-- Beginning reviews -->
     <section id="reviews-container">
@@ -61,7 +74,7 @@
   <!-- Main javascript file -->
   <script type="text/javascript" src="js/restaurant_info.js"></script>
   <!-- Google Maps -->
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_tKbW6A5pQ-eupxI56myUnHLqYCzOjKo&libraries=places&callback=initMap"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3uCddX9u6tecqL4lDz_ji3-nZ5-ICTb4&libraries=places&callback=initMap"></script>
   <!-- End scripts -->
 
 </body>
