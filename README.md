@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
-* [What's this?](#what's this?)
+* [What's this?](What's this?)
 * [How to run](#how-to-run)
 
 ## What's this?
