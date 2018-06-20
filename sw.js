@@ -4,7 +4,7 @@ const staticCacheName = [
     './restaurant.html',
     './css/styles.css',
     './css/medium.css',
-    './css/large.css', 
+    './css/large.css',
     './data/restaurants.json',
     './img/1.jpg',
     './img/2.jpg',
@@ -50,54 +50,55 @@ self.addEventListener('activate', (event) => {
 });
 
 
-self.addEventListener('fetch', function (e) {
+self.addEventListener('fetch', function(e) {
     // e.respondWidth Responds to the fetch event
     e.respondWith(
         // Check in cache for the request being made
         caches.match(e.request)
-            .then(function (response) {
+        .then(function(response) {
 
-                // If the request is in the cache
-                if (response) {
-                    console.log("ServiceWorker Found in Cache", e.request.url);
-                    // Return the cached version
-                    return response || fetch(event.request);
-                }
+            // If the request is in the cache
+            if (response) {
+                console.log("ServiceWorker Found in Cache", e.request.url);
+                // Return the cached version
+                return response || fetch(event.request);
+            }
 
-                // If the request is NOT in the cache, fetch and cache
-                if (e.request.url.indexOf('restaurant.html') > -1) {
-                    console.log(e.request.url.indexOf('restaurant.html'))
-                    return fetch(e.request);
-                }
-                let requestClone = e.request.clone();
-                return fetch(requestClone)
-                    .then(function (response) {
+            // If the request is NOT in the cache, fetch and cache
+            if (e.request.url.indexOf('restaurant.html') > -1) {
+                console.log(e.request.url.indexOf('restaurant.html'))
+                return fetch(e.request);
+            }
+            let requestClone = e.request.clone();
+            return fetch(requestClone)
+                .then(function(response) {
 
-                        if (!response) {
-                            console.log("No response from fetch ")
-                            return response;
-                        }
+                    if (!response) {
+                        console.log("No response from fetch ")
+                        return response;
+                    }
 
-                        var responseClone = response.clone();
+                    var responseClone = response.clone();
 
-                        //  Open the cache
-                        caches.open(cacheName).then(function (cache) {
+                    //  Open the cache
+                    caches.open(cacheName).then(function(cache) {
 
-                            // Put the fetched response in the cache
-                            cache.put(e.request, responseClone);
-                            console.log('New Data Cached', e.request.url);
-                            // Return the response
-                            return response;
-                        });
-
-                    })
-                    .catch(() => {
-                        return new Response('This Page was not cached',
-                            {
-                                headers: { 'Content-Type': 'text/html' }
-                            })
+                        // Put the fetched response in the cache
+                        cache.put(e.request, responseClone);
+                        console.log('New Data Cached', e.request.url);
+                        // Return the response
+                        return response;
                     });
 
-            })
+                })
+                .catch(() => {
+                    return new Response('This Page was not cached', {
+                        headers: {
+                            'Content-Type': 'text/html'
+                        }
+                    })
+                });
+
+        })
     );
 });

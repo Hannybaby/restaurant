@@ -1,33 +1,26 @@
 /* ===== Display Large Viewport ===== */
-
-#restaurants-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: auto;
-  max-width: 1200px;
+ #restaurants-list {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     margin: auto;
+     max-width: 1200px;
 }
-
-#restaurants-list li {
-  margin: 15px;
-  padding: 16px;
-  width: 300px;
-  
+ #restaurants-list li {
+     margin: 15px;
+     padding: 16px;
+     width: 300px;
 }
-
-#info-image {
-  display: flex;
+ #info-image {
+     display: flex;
 }
-
-#restaurant-img {
-  width: 50%;
+ #restaurant-img {
+     width: 50%;
 }
-
-#hours-cusine-address {
-  padding-left: 20px;
-  width: 100%;
+ #hours-cusine-address {
+     padding-left: 20px;
+     width: 100%;
 }
-
-#restaurant-cuisine {
-  margin-top: 0
+ #restaurant-cuisine {
+     margin-top: 0 
 }
