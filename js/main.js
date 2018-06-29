@@ -5,6 +5,14 @@ var map
 var markers = []
 
 /**
+ * Register service worker
+ */
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./sw.js', { scope: './' });
+}
+
+
+/**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
  */
 document.addEventListener('DOMContentLoaded', (event) => {
@@ -144,7 +152,7 @@ createRestaurantHTML = (restaurant) => {
     image.alt = `a detailed photo of the ${restaurant.name} restaurant`;
     li.append(image);
 
-    const name = document.createElement('h1');
+    const name = document.createElement('h4');
     name.innerHTML = restaurant.name;
     li.append(name);
 
